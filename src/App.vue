@@ -20,21 +20,22 @@ const data = ref(null);
 const loadData = async () => {
   const res = await getVisualization();
   console.log(res);
-  data.value = res
+  data.value = res;
 };
 
 setInterval(() => {
-  loadData()
-},3000)
+  loadData();
+}, 3000);
 </script>
 
 <template>
   <div
+    v-if="data"
     class="bg-[url('./assets/image/bg.jpg')] bg-cover bg-center h-screen text-white overflow-hidden p-5 flex"
   >
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 横向柱状图 -->
-      <HorizontalBar class="h-1/3 box-border pb-4" />
+      <HorizontalBar :data="data.regionData" class="h-1/3 box-border pb-4" />
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" />
       <!-- 关系图 -->
