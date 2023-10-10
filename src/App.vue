@@ -7,6 +7,18 @@ import RingBar from "./components/RingBar.vue";
 import TotalData from "./components/TotalData.vue";
 import VerticalBar from "./components/VerticalBar.vue";
 import WordCloud from "./components/WordCloud.vue";
+
+import { getVisualization } from "@/api/visualization";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  loadData();
+});
+
+const loadData = async () => {
+  const res = await getVisualization();
+  console.log(res);
+};
 </script>
 
 <template>
