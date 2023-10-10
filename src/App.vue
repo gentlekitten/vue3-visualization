@@ -9,16 +9,23 @@ import VerticalBar from "./components/VerticalBar.vue";
 import WordCloud from "./components/WordCloud.vue";
 
 import { getVisualization } from "@/api/visualization";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 onMounted(() => {
   loadData();
 });
 
+const data = ref(null);
+
 const loadData = async () => {
   const res = await getVisualization();
   console.log(res);
+  data.value = res
 };
+
+setInterval(() => {
+  loadData()
+},3000)
 </script>
 
 <template>
