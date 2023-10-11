@@ -31,9 +31,9 @@ setInterval(() => {
 <template>
   <div
     v-if="data"
-    class="bg-[url('./assets/image/bg.jpg')] bg-cover bg-center h-screen text-white overflow-hidden p-5 flex"
+    class="bg-[url('./assets/image/bg.jpg')] bg-cover bg-center h-screen text-white overflow-hidden pt-2 pb-2 pl-2 pr-1 flex"
   >
-    <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+    <div class="flex-1 mr-3 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 横向柱状图 -->
       <HorizontalBar :data="data.regionData" class="h-1/3 box-border pb-4" />
       <!-- 雷达图 -->
@@ -41,19 +41,19 @@ setInterval(() => {
       <!-- 关系图 -->
       <Relation :data="data.relationData" class="h-1/3" />
     </div>
-    <div class="w-1/2 mr-5 flex flex-col">
+    <div class="w-1/2 mr-3 flex flex-col">
       <!-- 数据总览图 -->
       <TotalData :data="data.totalData" class="bg-opacity-50 bg-slate-800 p-3" />
       <!-- 地图可视化 -->
-      <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-4 flex-1" />
+      <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-2 flex-1" />
     </div>
-    <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+    <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 竖向柱状图 -->
       <VerticalBar :data="data.serverData" class="h-1/3 box-border pb-4" />
       <!-- 环形图 -->
       <RingBar :data="data.abnormalData" class="h-1/3 box-border pb-4" />
       <!-- 文档云图 -->
-      <WordCloud :data="data.wordCloudData" class="h-1/3" />
+      <WordCloud :data="data.wordCloudData" class="h-1/3 box-border" />
     </div>
   </div>
 </template>
