@@ -39,7 +39,7 @@ setInterval(() => {
       <!-- 雷达图 -->
       <RadarBar :data="data.riskData" class="h-1/3 box-border pb-4" />
       <!-- 关系图 -->
-      <Relation class="h-1/3" />
+      <Relation :data="data.relationData" class="h-1/3" />
     </div>
     <div class="w-1/2 mr-5 flex flex-col">
       <!-- 数据总览图 -->
