@@ -7,12 +7,16 @@ Vue3-Visualization，基于Vue3、tailwindcss、Echarts、DataV的数据可视�
 
 - **Install：**
 
+```text
 npm install
 cnpm install
+```
 
 - **Run：**
 
+```text
 npm run dev
+```
 
 ### 三、项目截图
 
