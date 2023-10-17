@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from "vue";
 import * as echarts from "echarts";
+import { BorderBox11 as DvBorderBox11 } from '@kjgl77/datav-vue3'
 
 const props = defineProps({
   data: {
@@ -160,8 +161,9 @@ watch(
 </script>
 <template>
   <div>
-    <div>【云端报警风险】</div>
-    <div ref="target" class="w-full h-full"></div>
+    <dv-border-box11 class="pt-10" title="云端报警风险" :title-width="200">
+      <div ref="target" class="w-full h-full"></div>
+    </dv-border-box11>
   </div>
 </template>
 <style lang="scss" scoped></style>

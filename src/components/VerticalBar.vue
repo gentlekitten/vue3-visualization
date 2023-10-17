@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, ref, onMounted, watch } from "vue";
 import * as echarts from "echarts";
+import { BorderBox11 as DvBorderBox11 } from "@kjgl77/datav-vue3";
 
 const props = defineProps({
   data: {
@@ -90,8 +91,15 @@ watch(
 </script>
 <template>
   <div>
-    <div>【服务资源占用比】</div>
-    <div ref="target" class="w-full h-full"></div>
+    <dv-border-box11 class="pt-10" title="服务资源占用比" :title-width="200">
+      <div ref="target" class="w-5/6 h-5/6"></div>
+    </dv-border-box11>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style scoped>
+:deep(.border-box-content) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

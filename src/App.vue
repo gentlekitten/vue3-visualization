@@ -19,7 +19,6 @@ const data = ref(null);
 
 const loadData = async () => {
   const res = await getVisualization();
-  console.log(res);
   data.value = res;
 };
 
@@ -31,27 +30,27 @@ setInterval(() => {
 <template>
   <div
     v-if="data"
-    class="bg-[url('./assets/image/bg.jpg')] bg-cover bg-center h-screen text-white overflow-hidden pt-2 pb-2 pl-2 pr-1 flex"
+    class="bg-[url('./assets/image/bg.jpg')] min-w-min bg-cover bg-center h-screen text-white overflow-hidden pt-2 pb-2 pl-2 pr-1 flex"
   >
-    <div class="flex-1 mr-3 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+    <div class="flex-1 mr-3 p-3 flex flex-col">
       <!-- 横向柱状图 -->
-      <HorizontalBar :data="data.regionData" class="h-1/3 box-border pb-4" />
+      <HorizontalBar :data="data.regionData" class="h-1/3 box-border pb-2" />
       <!-- 雷达图 -->
-      <RadarBar :data="data.riskData" class="h-1/3 box-border pb-4" />
+      <RadarBar :data="data.riskData" class="h-1/3 box-border pb-2" />
       <!-- 关系图 -->
       <Relation :data="data.relationData" class="h-1/3" />
     </div>
-    <div class="w-1/2 mr-3 flex flex-col">
+    <div class="w-1/2 min-w-min mr-3 flex flex-col">
       <!-- 数据总览图 -->
-      <TotalData :data="data.totalData" class="bg-opacity-50 bg-slate-800 p-3" />
+      <TotalData :data="data.totalData" class="h-1/4" />
       <!-- 地图可视化 -->
-      <MapChart :data="data.mapData" class="bg-opacity-50 bg-slate-800 p-3 mt-2 flex-1" />
+      <MapChart :data="data.mapData" class="bg-opacity-70 bg-slate-800 mt-2 flex-1" />
     </div>
-    <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+    <div class="flex-1 p-3 flex flex-col">
       <!-- 竖向柱状图 -->
-      <VerticalBar :data="data.serverData" class="h-1/3 box-border pb-4" />
+      <VerticalBar :data="data.serverData" class="h-1/3 box-border pb-2" />
       <!-- 环形图 -->
-      <RingBar :data="data.abnormalData" class="h-1/3 box-border pb-4" />
+      <RingBar :data="data.abnormalData" class="h-1/3 box-border pb-2" />
       <!-- 文档云图 -->
       <WordCloud :data="data.wordCloudData" class="h-1/3 box-border" />
     </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, ref, onMounted, watch } from "vue";
 import * as echarts from "echarts";
+import { BorderBox11 as DvBorderBox11 } from "@kjgl77/datav-vue3";
 
 const props = defineProps({
   data: {
@@ -69,7 +70,7 @@ const renderChart = () => {
         showBackground: true,
         // 背景色
         backgroundStyle: {
-          color: "rgba(180, 180, 180, 0.2)"
+          color: "rgba(180, 180, 180, 0.2)",
         },
         // 每个轴的样式
         itemStyle: {
@@ -103,8 +104,15 @@ watch(
 </script>
 <template>
   <div>
-    <div>【大区数据信息】</div>
-    <div ref="target" class="w-full h-full"></div>
+    <dv-border-box11 class="pt-12" title="大区数据信息" :title-width="200">
+      <div ref="target" class="w-5/6 h-5/6"></div>
+    </dv-border-box11>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style scoped>
+:deep(.border-box-content) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

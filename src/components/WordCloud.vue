@@ -2,6 +2,7 @@
 import { onMounted, ref, watch, computed } from "vue";
 import * as echarts from "echarts";
 import "echarts-wordcloud";
+import { BorderBox11 as DvBorderBox11 } from '@kjgl77/datav-vue3'
 
 const props = defineProps({
   data: {
@@ -58,7 +59,7 @@ const renderChart = () => {
         emphasis: {
           textStyle: {
             fontWeight: "bold",
-            color: "#000",
+            color: "#1de9b6",
           },
         },
         // 数据
@@ -80,8 +81,9 @@ watch(
 </script>
 <template>
   <div>
-    <div>【关键词条】</div>
-    <div ref="target" class="w-full h-full"></div>
+    <dv-border-box11 class="pt-7" title="关键词条" :title-width="200">
+      <div ref="target" class="w-full h-full"></div>
+    </dv-border-box11>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style scoped></style>
